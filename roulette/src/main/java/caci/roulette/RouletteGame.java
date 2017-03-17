@@ -21,7 +21,7 @@ public class RouletteGame {
     public void doPlay() {
         Pocket winningPocket = wheel.spin();
         for (Player player : players) {
-            int win = player.getActualBet().getAmount() * player.getActualBet().getWinningRule().match(winningPocket);
+            int win = player.getActualBet().evaluatePrize(winningPocket);
             player.setWin(win);
         }
     }
